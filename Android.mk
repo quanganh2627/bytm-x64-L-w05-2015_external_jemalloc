@@ -50,6 +50,10 @@ lib_src_files := \
 	src/tsd.c \
 	src/util.c \
 
+ifneq ($(BOARD_MALLOC_ALIGNMENT),)
+  common_cflags += -DMALLOC_ALIGNMENT=$(BOARD_MALLOC_ALIGNMENT)
+endif
+
 #-----------------------------------------------------------------------
 # jemalloc static library
 #-----------------------------------------------------------------------
