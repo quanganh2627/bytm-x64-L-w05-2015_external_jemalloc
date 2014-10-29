@@ -168,20 +168,8 @@ static const bool config_ivsalloc =
 #define	MALLOCX_LG_ALIGN_MASK	((int)0x3f)
 
 /* Smallest size class to support. */
-#ifdef	MALLOC_ALIGNMENT
-#if MALLOC_ALIGNMENT == 8
 #define	LG_TINY_MIN		3
-#elif MALLOC_ALIGNMENT == 16
-#define	LG_TINY_MIN		4
-#else
-#error "Your MALLOC_ALIGNMENT definition is not supported by jemalloc"
-#endif
-#else
-#define	LG_TINY_MIN		3
-#endif
-
 #define	TINY_MIN		(1U << LG_TINY_MIN)
-
 
 /*
  * Minimum alignment of allocations is 2^LG_QUANTUM bytes (ignoring tiny size

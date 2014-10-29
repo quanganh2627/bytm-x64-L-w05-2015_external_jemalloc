@@ -549,7 +549,7 @@ small_size2bin_lookup(size_t size)
 	assert(size <= LOOKUP_MAXCLASS);
 	{
 		size_t ret = ((size_t)(small_size2bin_tab[(size-1) >>
-		    3]));
+		    LG_TINY_MIN]));
 		assert(ret == small_size2bin_compute(size));
 		return (ret);
 	}
